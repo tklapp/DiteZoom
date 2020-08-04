@@ -13,3 +13,5 @@ Después van a "System Preferences" de su Mac OS, Security & Privacy, y en Acces
 Con todo lo necesario instalado, ahora pueden abrir el archivo TimeTable.csv y cargar sus horarios. Pueden cambiar los horarios de la forma que quieran: si su clase empieza 11:30 pueden cambiarlo, si quieren entrar un minuto antes pueden poner 11:39. Si tienen clases más tarde también pueden agregar filas con el mismo formato (i.e. "monday" en inglés y sin mayúscula, mismo formato de horario). **Guarden el archivo como está, con formato csv.**
 
 Abren terminal, corren "python3.8 DiteZoom.py" y ya tienen el script funcionando :) Si su Macbook **no** tiene retina display, corren "python3.8 DiteZoomNoRetina.py". 
+
+Pueden cerrar el script y volverlo a abrir cuando quieran. No debería tener problemas para funcionar por eso. 
