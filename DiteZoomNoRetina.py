@@ -1,5 +1,5 @@
 try:
-    import datetime
+    from datetime import datetime
     import time
     import schedule
     import subprocess
