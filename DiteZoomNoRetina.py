@@ -52,92 +52,103 @@ def joinmeet(id,password = ""):
         print("Pusiste un invalid ID")
 
 #Importo TimeTable
-with open('Horarios.csv', newline='', encoding="utf-8-sig") as horarios:
-    DictHorarios = csv.DictReader(horarios)
-    for row in DictHorarios:
-        if row["ID"] != '':
-            if row['weekday'] == 'monday':
-                ID = row['ID']
-                password = row['Password']
-                dia = row['weekday']
-                schedule.every().monday.at(row['time']).do(joinmeet, id=ID, password=password)
-                horario = row['time']
-                horariosplit = horario.split(":")
-                horariosuma = float(horariosplit[0])*60 + float(horariosplit[1])
-                now = datetime.now()
-                current_time = now.strftime("%H:%M")
-                current_time_split = current_time.split(":")
-                current_time_suma = float(current_time_split[0])*60 + float(current_time_split[1])
-                if horariosuma < current_time_suma:
-                    continue
-                while True:
-                    schedule.run_pending()
-                    time.sleep(10)
-            if row['weekday'] == 'tuesday':
-                ID = row['ID']
-                password = row['Password']
-                dia = row['weekday']
-                schedule.every().tuesday.at(row['time']).do(joinmeet, id=ID, password=password)
-                horario = row['time']
-                horariosplit = horario.split(":")
-                horariosuma = float(horariosplit[0]) * 60 + float(horariosplit[1])
-                now = datetime.now()
-                current_time = now.strftime("%H:%M")
-                current_time_split = current_time.split(":")
-                current_time_suma = float(current_time_split[0]) * 60 + float(current_time_split[1])
-                if horariosuma < current_time_suma:
-                    continue
-                while True:
-                    schedule.run_pending()
-                    time.sleep(10)
-            if row['weekday'] == 'wednesday':
-                ID = row['ID']
-                password = row['Password']
-                dia = row['weekday']
-                schedule.every().wednesday.at(row['time']).do(joinmeet, id=ID, password=password)
-                horario = row['time']
-                horariosplit = horario.split(":")
-                horariosuma = float(horariosplit[0]) * 60 + float(horariosplit[1])
-                now = datetime.now()
-                current_time = now.strftime("%H:%M")
-                current_time_split = current_time.split(":")
-                current_time_suma = float(current_time_split[0]) * 60 + float(current_time_split[1])
-                if horariosuma < current_time_suma:
-                    continue
-                while True:
-                    schedule.run_pending()
-                    time.sleep(10)
-            if row['weekday'] == 'thursday':
-                ID = row['ID']
-                password = row['Password']
-                dia = row['weekday']
-                schedule.every().thursday.at(row['time']).do(joinmeet, id=ID, password=password)
-                horario = row['time']
-                horariosplit = horario.split(":")
-                horariosuma = float(horariosplit[0]) * 60 + float(horariosplit[1])
-                now = datetime.now()
-                current_time = now.strftime("%H:%M")
-                current_time_split = current_time.split(":")
-                current_time_suma = float(current_time_split[0]) * 60 + float(current_time_split[1])
-                if horariosuma < current_time_suma:
-                    continue
-                while True:
-                    schedule.run_pending()
-                    time.sleep(10)
-            if row['weekday'] == 'friday':
-                ID = row['ID']
-                password = row['Password']
-                dia = row['weekday']
-                schedule.every().friday.at(row['time']).do(joinmeet, id=ID, password=password)
-                horario = row['time']
-                horariosplit = horario.split(":")
-                horariosuma = float(horariosplit[0]) * 60 + float(horariosplit[1])
-                now = datetime.now()
-                current_time = now.strftime("%H:%M")
-                current_time_split = current_time.split(":")
-                current_time_suma = float(current_time_split[0]) * 60 + float(current_time_split[1])
-                if horariosuma < current_time_suma:
-                    continue
-                while True:
-                    schedule.run_pending()
-                    time.sleep(10)
+with open('Horarios.csv', newline='', encoding="utf-8-sig") as horarios:                              
+    DictHorarios = csv.DictReader(horarios)                                                             
+    for row in DictHorarios:                                                                            
+        if row["ID"] != '':                                                                             
+            todayday = datetime.today().weekday()                                                       
+            if todayday == 0:                                                                           
+                if row['weekday'] == 'monday':                                                          
+                    ID = row['ID']                                                                      
+                    password = row['Password']                                                          
+                    dia = row['weekday']                                                                
+                    schedule.every().monday.at(row['time']).do(joinmeet, id=ID, password=password)      
+                    horario = row['time']                                                               
+                    horariosplit = horario.split(":")                                                   
+                    horariosuma = float(horariosplit[0])*60 + float(horariosplit[1])                    
+                    now = datetime.now()                                                                
+                    current_time = now.strftime("%H:%M")                                                
+                    current_time_split = current_time.split(":")                                        
+                    current_time_suma = float(current_time_split[0])*60 + float(current_time_split[1])  
+                    if horariosuma < current_time_suma:                                                 
+                        continue                                                                        
+                    else:                                                                               
+                        while True:                                                                     
+                            schedule.run_pending()                                                      
+                            time.sleep(10)                                                              
+            elif todayday == 1:                                                                         
+                if row['weekday'] == 'tuesday':                                                         
+                    ID = row['ID']                                                                      
+                    password = row['Password']                                                          
+                    dia = row['weekday']                                                                
+                    schedule.every().tuesday.at(row['time']).do(joinmeet, id=ID, password=password)     
+                    horario = row['time']                                                               
+                    horariosplit = horario.split(":")                                                   
+                    horariosuma = float(horariosplit[0]) * 60 + float(horariosplit[1])                  
+                    now = datetime.now()                                                                
+                    current_time = now.strftime("%H:%M")                                                
+                    current_time_split = current_time.split(":")                                        
+                    current_time_suma = float(current_time_split[0]) * 60 + float(current_time_split[1])
+                    if horariosuma < current_time_suma:                                                 
+                        continue                                                                        
+                    else:                                                                               
+                        while True:                                                                     
+                            schedule.run_pending()                                                      
+                            time.sleep(10)                                                              
+            elif todayday == 2:                                                                         
+                if row['weekday'] == 'wednesday':                                                       
+                    ID = row['ID']                                                                      
+                    password = row['Password']                                                          
+                    dia = row['weekday']                                                                
+                    schedule.every().wednesday.at(row['time']).do(joinmeet, id=ID, password=password)   
+                    horario = row['time']                                                               
+                    horariosplit = horario.split(":")                                                   
+                    horariosuma = float(horariosplit[0]) * 60 + float(horariosplit[1])                  
+                    now = datetime.now()                                                                
+                    current_time = now.strftime("%H:%M")                                                
+                    current_time_split = current_time.split(":")                                        
+                    current_time_suma = float(current_time_split[0]) * 60 + float(current_time_split[1])
+                    if horariosuma < current_time_suma:                                                 
+                        continue                                                                        
+                    else:                                                                               
+                        while True:                                                                     
+                            schedule.run_pending()                                                      
+                            time.sleep(10)                                                              
+            elif todayday == 3:                                                                         
+                if row['weekday'] == 'thursday':                                                        
+                    ID = row['ID']                                                                      
+                    password = row['Password']                                                          
+                    dia = row['weekday']                                                                
+                    schedule.every().thursday.at(row['time']).do(joinmeet, id=ID, password=password)    
+                    horario = row['time']                                                               
+                    horariosplit = horario.split(":")                                                   
+                    horariosuma = float(horariosplit[0]) * 60 + float(horariosplit[1])                  
+                    now = datetime.now()                                                                
+                    current_time = now.strftime("%H:%M")                                                
+                    current_time_split = current_time.split(":")                                        
+                    current_time_suma = float(current_time_split[0]) * 60 + float(current_time_split[1])
+                    if horariosuma < current_time_suma:                                                 
+                        continue                                                                        
+                    else:                                                                               
+                        while True:                                                                     
+                            schedule.run_pending()                                                      
+                            time.sleep(10)                                                              
+            elif todayday == 4:                                                                         
+                if row['weekday'] == 'friday':                                                          
+                    ID = row['ID']                                                                      
+                    password = row['Password']                                                          
+                    dia = row['weekday']                                                                
+                    schedule.every().friday.at(row['time']).do(joinmeet, id=ID, password=password)      
+                    horario = row['time']                                                               
+                    horariosplit = horario.split(":")                                                   
+                    horariosuma = float(horariosplit[0]) * 60 + float(horariosplit[1])                  
+                    now = datetime.now()                                                                
+                    current_time = now.strftime("%H:%M")                                                
+                    current_time_split = current_time.split(":")                                        
+                    current_time_suma = float(current_time_split[0]) * 60 + float(current_time_split[1])
+                    if horariosuma < current_time_suma:                                                 
+                        continue                                                                        
+                    else:                                                                               
+                        while True:                                                                     
+                            schedule.run_pending()                                                      
+                            time.sleep(10)                                                              
