@@ -80,7 +80,7 @@ with open('Horarios.csv', newline='', encoding="utf-8-sig") as horarios:
                         ID = row['ID']
                         password = row['Password']
                         dia = row['weekday']
-                        schedule.every().thursday.at(row['time']).do(joinmeet, id=ID, password=password)
+                        schedule.every().monday.at(row['time']).do(joinmeet, id=ID, password=password)
             elif todayday == 1:
                 if row['weekday'] == 'tuesday':
                     horario = row['time']
@@ -96,7 +96,7 @@ with open('Horarios.csv', newline='', encoding="utf-8-sig") as horarios:
                         ID = row['ID']
                         password = row['Password']
                         dia = row['weekday']
-                        schedule.every().thursday.at(row['time']).do(joinmeet, id=ID, password=password)
+                        schedule.every().tuesday.at(row['time']).do(joinmeet, id=ID, password=password)
             elif todayday == 2:
                 if row['weekday'] == 'wednesday':
                     horario = row['time']
@@ -112,7 +112,7 @@ with open('Horarios.csv', newline='', encoding="utf-8-sig") as horarios:
                         ID = row['ID']
                         password = row['Password']
                         dia = row['weekday']
-                        schedule.every().thursday.at(row['time']).do(joinmeet, id=ID, password=password)
+                        schedule.every().wednesday.at(row['time']).do(joinmeet, id=ID, password=password)
             elif todayday == 3:
                 if row['weekday'] == 'thursday':
                     horario = row['time']
@@ -145,7 +145,7 @@ with open('Horarios.csv', newline='', encoding="utf-8-sig") as horarios:
                         ID = row['ID']
                         password = row['Password']
                         dia = row['weekday']
-                        schedule.every().thursday.at(row['time']).do(joinmeet, id=ID, password=password)
+                        schedule.every().friday.at(row['time']).do(joinmeet, id=ID, password=password)
 while True:
     schedule.run_pending()
     time.sleep(5)
